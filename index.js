@@ -20,6 +20,7 @@ const queue = new Map();
 client.on("ready", () => {
     console.log("I am online!")
     client.user.setActivity('The McDonalds Drive-Thru', {type: 'WATCHING'});
+    if(message.channel.type === 'dm') return
 })
 
 client.on("message", async(message) => {
