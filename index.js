@@ -20,7 +20,6 @@ const queue = new Map();
 client.on("ready", () => {
     console.log("I am online!")
     client.user.setActivity('The McDonalds Drive-Thru', {type: 'WATCHING'});
-    if(message.channel.type === 'dm') return
 })
 
 client.on("message", async(message) => {
@@ -58,12 +57,14 @@ client.on("message", async(message) => {
         case 'fuckoff':
             stop(message, serverQueue);
             break;
+            
         
         }
 
     async function execute(message, serverQueue){
         if(args.length <= 0)
             return message.channel.send('Please write the name of the song')
+            if(message.channel.type === 'dm') return
         let vc = message.member.voice.channel;
         if(!vc){
             return message.channel.send("Please join a voice chat first");
