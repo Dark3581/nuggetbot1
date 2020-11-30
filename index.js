@@ -19,7 +19,7 @@ const queue = new Map();
 
 client.on("ready", () => {
     console.log("I am online!")
-    client.user.setActivity('Nugget Sex', {type: 'WATCHING'});
+    client.user.setActivity('The McDonalds Drive-Thru', {type: 'WATCHING'});
 })
 
 client.on("message", async(message) => {
