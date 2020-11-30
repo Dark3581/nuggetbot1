@@ -23,6 +23,7 @@ client.on("ready", () => {
 })
 
 client.on("message", async(message) => {
+    if (message.channel.type === "dm") return
     const prefix = '.';
 
     if(!message.content.startsWith(prefix)) return
