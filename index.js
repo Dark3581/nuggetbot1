@@ -64,7 +64,6 @@ client.on("message", async(message) => {
     async function execute(message, serverQueue){
         if(args.length <= 0)
             return message.channel.send('Please write the name of the song')
-            if(message.channel.type === 'dm') return
         let vc = message.member.voice.channel;
         if(!vc){
             return message.channel.send("Please join a voice chat first");
