@@ -177,7 +177,7 @@ client.on("message", async(message) => {
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
-            return message.channel.send('Please define the loop <one/l00p/off>')
+            return message.channel.send('Please specify what loop you want. `.loop one/l00p/off`')
         
 
         switch(args[0].toLowerCase()){
@@ -207,7 +207,7 @@ client.on("message", async(message) => {
                     message.channel.send("Loop has been turned off!");
                 break;
             default:
-                message.channel.send("Please specify what loop you want. !loop `one/l00p/off`"); 
+                message.channel.send("Please specify what loop you want. .loop `one/l00p/off`"); 
         }
     }
     function Queue(serverQueue){
