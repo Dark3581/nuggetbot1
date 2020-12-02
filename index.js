@@ -130,9 +130,7 @@ client.on("message", async(message) => {
                 }
                 play(guild, serverQueue.songs[0]);
             })
-            const embed = new Discord.MessageEmbed()
-            .setDescription(`fuck **Playing** :notes:  ${serverQueue.songs[0].title}- Now`)
-            serverQueue.txtChannel.send(embed)
+            serverQueue.txtChannel.send(`**Playing** :notes:  \`${serverQueue.songs[0].title}\`- Now`)
     }
     function stop (message, serverQueue){
         if(!serverQueue)
