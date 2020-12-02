@@ -207,7 +207,7 @@ client.on("message", async(message) => {
                     message.channel.send("Loop has been turned off!");
                 break;
             default:
-                message.channel.send(`Please specify what loop you want. !loop \`one/l00p/off\``); 
+                message.channel.send("Please specify what loop you want. !loop `one/l00p/off`"); 
         }
     }
     function Queue(serverQueue){
