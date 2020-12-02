@@ -58,8 +58,7 @@ client.on("message", async(message) => {
         case 'fuckoff':
             stop(message, serverQueue);
             break;
-            
-        
+                   
         }
 
     async function execute(message, serverQueue){
@@ -131,7 +130,9 @@ client.on("message", async(message) => {
                 }
                 play(guild, serverQueue.songs[0]);
             })
-            serverQueue.txtChannel.send(`**Playing** :notes:  ${serverQueue.songs[0].title}- Now`)
+            const embed = new MessageEmbed()
+            .setDescription(`fuck **Playing** :notes:  ${serverQueue.songs[0].title}- Now`)
+            serverQueue.txtChannel.send(embed)
     }
     function stop (message, serverQueue){
         if(!serverQueue)
