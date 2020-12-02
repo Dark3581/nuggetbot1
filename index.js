@@ -104,7 +104,7 @@ client.on("message", async(message) => {
                 }
             }else{
                 serverQueue.songs.push(song);
-                return message.channel.send(`The song has been added ${song.title}`);
+                return message.channel.send(`The song has been added \`${song.title}\``);
             }
         }
     }
