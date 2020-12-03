@@ -33,7 +33,21 @@ client.on("message", async(message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
-
+    const embed = new MessageEmbed()
+            .setDescription(`
+         \"stop\" - Stops what ever is playing on the bot
+        
+        \"play SONGOFYOURCHOICE\" - Plays the song you want
+        
+        \"skip\" - Skips the current song playing
+        
+        \"queue\" - Shows the current queue
+        
+        \"loop one/l00p/off\" - Loops the song playing
+        
+        \"pause\" - Pauses the song playing
+        
+        \"resume\" - Resumes the song that was paused`)
     switch(command){
         case 'play':
             execute(message, serverQueue);
@@ -61,22 +75,7 @@ client.on("message", async(message) => {
             break;
         case 'help':
             if (prefix + message.content === 'help')
-            const embed = new MessageEmbed()
-            .setDescription(`
-         \"stop\" - Stops what ever is playing on the bot
-        
-        \"play SONGOFYOURCHOICE\" - Plays the song you want
-        
-        \"skip\" - Skips the current song playing
-        
-        \"queue\" - Shows the current queue
-        
-        \"loop one/l00p/off\" - Loops the song playing
-        
-        \"pause\" - Pauses the song playing
-        
-        \"resume\" - Resumes the song that was paused`)
-        message.channel.send(embed)
+             message.channel.send(embed)
             break;
                    
         }
