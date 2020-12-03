@@ -54,7 +54,6 @@ client.on("message", async(message) => {
                 { name: '\u200B', value: '\u200B' },
             )
             .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
-            .setTimestamp()
             .setFooter('Discord Invite: https://discord.gg/YtppaeN Discord Tag:Donny#6666');
     switch(command){
         case 'play':
