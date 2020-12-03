@@ -34,20 +34,30 @@ client.on("message", async(message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
     const embed = new Discord.MessageEmbed()
-            .setDescription(`
-        \"Stop\" - Stops what ever is playing on the bot
+            .setTitle('Nugget Music Commands')
+            .setURL('https://discord.gg/YtppaeN')
+            .setAuthor('Donny#6666', 'https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif', 'https://discord.js.org')
+            .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
+            .addFields(
+                { name: 'Commands', value: `\"Stop\" - Stops what ever is playing on the bot
         
-        \"Play SONGOFYOURCHOICE\" - Plays the song you want
-        
-        \"Skip\" - Skips the current song playing
-        
-        \"Queue\" - Shows the current queue
-        
-        \"Loop one/l00p/off\" - Loops the song playing
-        
-        \"Pause\" - Pauses the song playing
-        
-        \"Resume\" - Resumes the song that was paused`)
+                \"Play SONGOFYOURCHOICE\" - Plays the song you want
+                
+                \"Skip\" - Skips the current song playing
+                
+                \"Queue\" - Shows the current queue
+                
+                \"Loop one/l00p/off\" - Loops the song playing
+                
+                \"Pause\" - Pauses the song playing
+                
+                \"Resume\" - Resumes the song that was paused` },
+                { name: '\u200B', value: '\u200B' },
+            )
+            .addField('Inline field title', 'Some value here', true)
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Discord Invite', 'https://discord.gg/YtppaeN');
     switch(command){
         case 'play':
             execute(message, serverQueue);
