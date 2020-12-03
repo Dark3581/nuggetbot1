@@ -46,7 +46,7 @@ client.on("message", async(message) => {
                 
                 \"Queue\" - Shows the current queue
                 
-                \"Loop one/l00p/off\" - Loops the song playing
+                \"Loop one/on/off\" - Loops the song playing
                 
                 \"Pause\" - Pauses the song playing
                 
@@ -205,18 +205,18 @@ client.on("message", async(message) => {
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
-            return message.channel.send('Please specify what loop you want. `.loop one/l00p/off`')
+            return message.channel.send('Please specify what loop you want. `.loop one/on/off`')
         
 
         switch(args[0].toLowerCase()){
-           case 'l00p':
+           case 'on':
                serverQueue.loopall = !serverQueue.loopall;
                serverQueue.loopone = false;
 
                if(serverQueue.loopall === true)
-                   message.channel.send("Loop L00p has been turned on!");
+                   message.channel.send("Loop has been turned on!");
                else
-                    message.channel.send("Loop l00p has been truned off!");
+                    message.channel.send("Loop has been truned off!");
 
                break;
             case 'one':
@@ -235,7 +235,7 @@ client.on("message", async(message) => {
                     message.channel.send("Loop has been turned off!");
                 break;
             default:
-                message.channel.send("Please specify what loop you want. `.loop one/l00p/off`"); 
+                message.channel.send("Please specify what loop you want. `.loop one/on/off`"); 
         }
     }
     function Queue(serverQueue){
