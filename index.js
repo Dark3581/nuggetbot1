@@ -33,28 +33,6 @@ client.on("message", async(message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
-    const embed = new Discord.MessageEmbed()
-            .setTitle('Nugget Music Commands')
-            .setURL('https://discord.gg/YtppaeN')
-            .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
-            .addFields(
-                { name: 'Commands', value: `\"Stop\" - Stops what ever is playing on the bot
-        
-                \"Play SONG\" - Plays the song you want
-                
-                \"Skip\" - Skips the current song playing
-                
-                \"Queue\" - Shows the current queue
-                
-                \"Loop one/on/off\" - Loops the song playing
-                
-                \"Pause\" - Pauses the song playing
-                
-                \"Resume\" - Resumes the song that was paused` },
-                { name: '\u200B', value: '\u200B' },
-            )
-            .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
-            .setFooter('Discord Invite: https://discord.gg/YtppaeN Discord Tag:Donny#6666');
     switch(command){
         case 'play':
             execute(message, serverQueue);
@@ -81,8 +59,7 @@ client.on("message", async(message) => {
             stop(message, serverQueue);
             break;
         case 'help':
-            if (message.content === `${prefix}help`)
-             message.channel.send(embed)
+            help(message);
             break;
                    
         }
@@ -254,6 +231,34 @@ client.on("message", async(message) => {
 
         message.channel.send('```' + qMsg + 'Requested by: ' + message.author.username + '```');
     }
+   
+    function help(message){
+        const embed = new Discord.MessageEmbed()
+            .setTitle('Nugget Music Commands')
+            .setURL('https://discord.gg/YtppaeN')
+            .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
+            .addFields(
+                { name: 'Commands', value: `
+                 \"Stop\" - Stops what ever is playing on the bot
+        
+                \"Play SONG\" - Plays the song you want
+                
+                \"Skip\" - Skips the current song playing
+                
+                \"Queue\" - Shows the current queue
+                
+                \"Loop one/on/off\" - Loops the song playing
+                
+                \"Pause\" - Pauses the song playing
+                
+                \"Resume\" - Resumes the song that was paused` },
+                { name: '\u200B', value: '\u200B' },
+            )
+            .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
+            .setFooter('Discord Invite: https://discord.gg/YtpaeN Discord Tag:Donny#6666');
+
+message.channel.send(embed);
+}
 })
 
 client.login(process.env.token)
