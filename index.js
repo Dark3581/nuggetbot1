@@ -36,7 +36,6 @@ client.on("message", async(message) => {
     const embed = new Discord.MessageEmbed()
             .setTitle('Nugget Music Commands')
             .setURL('https://discord.gg/YtppaeN')
-            .setAuthor('Nugget Bot Commands', )
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Commands', value: `\"Stop\" - Stops what ever is playing on the bot
