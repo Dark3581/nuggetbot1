@@ -60,7 +60,23 @@ client.on("message", async(message) => {
             stop(message, serverQueue);
             break;
         case 'help':
-            help(message);
+            if (prefix + message.content === 'help')
+            const embed = new MessageEmbed()
+            .setDescription(`
+         \"stop\" - Stops what ever is playing on the bot
+        
+        \"play SONGOFYOURCHOICE\" - Plays the song you want
+        
+        \"skip\" - Skips the current song playing
+        
+        \"queue\" - Shows the current queue
+        
+        \"loop one/l00p/off\" - Loops the song playing
+        
+        \"pause\" - Pauses the song playing
+        
+        \"resume\" - Resumes the song that was paused`)
+        message.channel.send(embed)
             break;
                    
         }
@@ -163,24 +179,7 @@ client.on("message", async(message) => {
         
         serverQueue.connection.dispatcher.pause();
         message.channel.send("The song has been paused!");
-    function help (message){
-        const embed = new MessageEmbed()
-    .setDescription(`
-    \"stop\" - Stops what ever is playing on the bot
-
-    \"play SONGOFYOURCHOICE\" - Plays the song you want
-
-    \"skip\" - Skips the current song playing
-
-    \"queue\" - Shows the current queue
-
-    \"loop one/l00p/off\" - Loops the song playing
-
-    \"pause\" - Pauses the song playing
-
-    \"resume\" - Resumes the song that was paused`)
-    message.channel.send(embed)
-    }
+    
 
     }
     function resume(serverQueue){
