@@ -41,7 +41,7 @@ client.on("message", async(message) => {
             .addFields(
                 { name: 'Commands', value: `\"Stop\" - Stops what ever is playing on the bot
         
-                \"Play SONGOFYOURCHOICE\" - Plays the song you want
+                \"Play SONG\" - Plays the song you want
                 
                 \"Skip\" - Skips the current song playing
                 
