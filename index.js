@@ -35,19 +35,19 @@ client.on("message", async(message) => {
     const command = args.shift().toLowerCase();
     const embed = new Discord.MessageEmbed()
             .setDescription(`
-         \"stop\" - Stops what ever is playing on the bot
+        \"Stop\" - Stops what ever is playing on the bot
         
-        \"play SONGOFYOURCHOICE\" - Plays the song you want
+        \"Play SONGOFYOURCHOICE\" - Plays the song you want
         
-        \"skip\" - Skips the current song playing
+        \"Skip\" - Skips the current song playing
         
-        \"queue\" - Shows the current queue
+        \"Queue\" - Shows the current queue
         
-        \"loop one/l00p/off\" - Loops the song playing
+        \"Loop one/l00p/off\" - Loops the song playing
         
-        \"pause\" - Pauses the song playing
+        \"Pause\" - Pauses the song playing
         
-        \"resume\" - Resumes the song that was paused`)
+        \"Resume\" - Resumes the song that was paused`)
     switch(command){
         case 'play':
             execute(message, serverQueue);
