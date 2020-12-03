@@ -33,7 +33,7 @@ client.on("message", async(message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
-    const embed = new MessageEmbed()
+    const embed = MessageEmbed()
             .setDescription(`
          \"stop\" - Stops what ever is playing on the bot
         
