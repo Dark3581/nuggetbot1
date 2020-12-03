@@ -19,7 +19,7 @@ const queue = new Map();
 
 client.on("ready", () => {
     console.log("I am online!")
-    console.log(client.guilds.cache.size)
+    console.log(`I am in ${client.guilds.cache.size} servers`)
     client.user.setActivity('The McDonalds Drive-Thru', {type: 'WATCHING'});
 })
 
