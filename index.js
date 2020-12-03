@@ -36,7 +36,7 @@ client.on("message", async(message) => {
     const embed = new Discord.MessageEmbed()
             .setTitle('Nugget Music Commands')
             .setURL('https://discord.gg/YtppaeN')
-            .setAuthor('Nugget Bot Commands', 'https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif',)
+            .setAuthor('Nugget Bot Commands', )
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Commands', value: `\"Stop\" - Stops what ever is playing on the bot
@@ -54,9 +54,9 @@ client.on("message", async(message) => {
                 \"Resume\" - Resumes the song that was paused` },
                 { name: '\u200B', value: '\u200B' },
             )
-            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
             .setTimestamp()
-            .setFooter('Discord Invite: https://discord.gg/YtppaeN');
+            .setFooter('Discord Invite: https://discord.gg/YtppaeN Discord Tag:Donny#6666');
     switch(command){
         case 'play':
             execute(message, serverQueue);
