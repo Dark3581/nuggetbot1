@@ -74,7 +74,7 @@ client.on("message", async(message) => {
             stop(message, serverQueue);
             break;
         case 'help':
-            if (prefix + message.content === 'help')
+            if (message.content === '.help')
              message.channel.send(embed)
             break;
                    
