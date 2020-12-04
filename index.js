@@ -224,13 +224,14 @@ client.on("message", async(message) => {
 
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `Now playing: ${nowPlaying.title}\n--------------------------\n`
-
-        for(var i = 1; i < serverQueue.songs.length; i++){
-            qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
         let lMsg = ''
             if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
            else if (serverQueue.loopone === true) lMsg = 'Once'
            else if (serverQueue.loopall === true) lMsg = 'On'
+
+        for(var i = 1; i < serverQueue.songs.length; i++){
+            qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
+    
         }
         
         const queueE = new Discord.MessageEmbed()
