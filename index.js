@@ -73,6 +73,8 @@ client.on("message", async(message) => {
         }else{
             let result = await searcher.search(args.join(" "), { type: "video" }) 
             const songInfo = await ytdl.getInfo(result.first.url)
+        if(result.first === null || result.totalResults === 0) 
+            return message.channel.send("No result was found")
 
             let song = {
                 title: songInfo.videoDetails.title,
@@ -132,8 +134,7 @@ client.on("message", async(message) => {
                     serverQueue.songs.shift()
                 }
                 play(guild, serverQueue.songs[0]);
-                if(result.first === null || result.totalResults === 0) 
-                    return message.channel.send("No result was found")
+                
             })
             serverQueue.txtChannel.send(`**Playing** :notes:  \`${serverQueue.songs[0].title}\` - Now!`)
     }
