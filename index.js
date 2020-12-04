@@ -213,10 +213,7 @@ client.on("message", async(message) => {
             default:
                 message.channel.send("Please specify what loop you want. `.loop once/on/off`"); 
         }
-        let lMsg = ''
-         if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
-        else if (serverQueue.loopone === true) lMsg = 'Once'
-        else if (serverQueue.loopall === true) lMsg = 'On'
+        
     }
     function Queue(serverQueue){
         if(!serverQueue)
@@ -230,6 +227,11 @@ client.on("message", async(message) => {
 
         for(var i = 1; i < serverQueue.songs.length; i++){
             qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
+
+        let lMsg = ''
+            if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
+           else if (serverQueue.loopone === true) lMsg = 'Once'
+           else if (serverQueue.loopall === true) lMsg = 'On'
         }
         
         const queueE = new Discord.MessageEmbed()
