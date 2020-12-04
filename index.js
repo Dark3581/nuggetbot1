@@ -225,7 +225,7 @@ client.on("message", async(message) => {
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `Now playing: ${nowPlaying.title}\n--------------------------\n`
         let lMsg = ''
-            if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
+            if (serverQueue.loopall === false && serverQueue.loopone === false) lMsg = 'Off'
            else if (serverQueue.loopone === true) lMsg = 'Once'
            else if (serverQueue.loopall === true) lMsg = 'On'
 
