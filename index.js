@@ -182,7 +182,7 @@ client.on("message", async(message) => {
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
-            return message.channel.send('Please specify what loop you want. `.loop one/on/off`')
+            return message.channel.send('Please specify what loop you want. `.loop once/on/off`')
         
 
         switch(args[0].toLowerCase()){
@@ -201,9 +201,9 @@ client.on("message", async(message) => {
                 serverQueue.loopall = false;
 
                 if(serverQueue.loopone === true)
-                    message.channel.send("Loop one has been turned on!");
+                    message.channel.send("Song will be looped once");
                 else
-                    message.channel.send("Loop one has been truned off!");
+                    message.channel.send("Loop once has been truned off!");
                 break;
             case 'off':
                     serverQueue.loopall = false;
@@ -212,7 +212,7 @@ client.on("message", async(message) => {
                     message.channel.send("Loop has been turned off!");
                 break;
             default:
-                message.channel.send("Please specify what loop you want. `.loop one/on/off`"); 
+                message.channel.send("Please specify what loop you want. `.loop once/on/off`"); 
         }
     }
     function Queue(serverQueue){
@@ -226,7 +226,7 @@ client.on("message", async(message) => {
         let qMsg =  `Now playing: ${nowPlaying.title}\n--------------------------\n`
 
         for(var i = 1; i < serverQueue.songs.length; i++){
-            qMsg += `${i}. ${serverQueue.songs[i].title}\n`
+            qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
         }
         const queueE = new Discord.MessageEmbed()
             .setTitle('Nugget Music Queue')
@@ -255,7 +255,7 @@ client.on("message", async(message) => {
                 
                 \"Queue\" - Shows the current queue
                 
-                \"Loop one/on/off\" - Loops the song playing
+                \"Loop once/on/off\" - Loops the song playing
                 
                 \"Pause\" - Pauses the song playing
                 
