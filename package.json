@@ -6,7 +6,8 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "opusscript": "^0.0.7",
-    "ytdl-core": "^4.1.1",
+    "yt-dl-playlist": "^2.1.0",
+    "ytdl-core": "^4.1.2",
     "ytsearcher": "^1.2.3"
   },
   "devDependencies": {},
