@@ -124,6 +124,8 @@ client.on("message", async(message) => {
             .on('finish', () =>{
                 if(serverQueue.loopone){  
                     play(guild, serverQueue.songs[0]);
+                if(result.first === null || result.totalResults === 0) 
+                    return message.channel.send("No result was found")
                 }
                 else if(serverQueue.loopall){
                     serverQueue.songs.push(serverQueue.songs[0])
