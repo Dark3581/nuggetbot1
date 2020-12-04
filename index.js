@@ -228,8 +228,16 @@ client.on("message", async(message) => {
         for(var i = 1; i < serverQueue.songs.length; i++){
             qMsg += `${i}. ${serverQueue.songs[i].title}\n`
         }
+        const queueE = new Discord.MessageEmbed()
+            .setTitle('Nugget Music Queue')
+            .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
+            .addFields(
+                { name: 'Queue', value: qMsg },
+                { name: '\u200B', value: '\u200B' },
+            )
 
-        message.channel.send('```' + qMsg + 'Requested by: ' + message.author.username + '```');
+
+        message.channel.send(queueE);
     }
    
     function help(message){
