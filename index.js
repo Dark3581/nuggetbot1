@@ -227,7 +227,6 @@ client.on("message", async(message) => {
 
         for(var i = 1; i < serverQueue.songs.length; i++){
             qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
-
         let lMsg = ''
             if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
            else if (serverQueue.loopone === true) lMsg = 'Once'
