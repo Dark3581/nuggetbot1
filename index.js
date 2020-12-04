@@ -228,8 +228,9 @@ client.on("message", async(message) => {
         for(var i = 1; i < serverQueue.songs.length; i++){
             qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
         }
+        let lMsg = 'Off'
         if (serverQueue.loopall === true) lMsg = 'On'
-        if (serverQueue.loopone === true) lMsg+= 'Once'
+        if (serverQueue.loopone === true) lMsg = 'Once'
         
         const queueE = new Discord.MessageEmbed()
             .setTitle('Nugget Music Queue')
