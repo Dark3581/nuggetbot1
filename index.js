@@ -184,13 +184,9 @@ client.on("message", async(message) => {
         if(args.length <=0)
             return message.channel.send('Please specify what loop you want. `.loop once/on/off`')
         let lMsg;
-        lMsg='One'
-        if (loopall === false && loopone === false) let lMsg = "Off"
-        if (loopall === true) let lMsg = "On"
-        if (loopone === true) let lMsg = "Once"
-
-
-        
+        if (loopall === false && loopone === false) lMsg = 'Off'
+        if (loopone === true) lMsg = 'Once'
+        if (loopall === true) lMsg = 'On'
 
         switch(args[0].toLowerCase()){
            case 'on':
