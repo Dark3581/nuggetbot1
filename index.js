@@ -71,10 +71,10 @@ client.on("message", async(message) => {
         if(!vc){
             return message.channel.send("Please join a voice chat first");
         }else{
-            let result = await searcher.search(args.join(" "), { type: "video" }) 
-            const songInfo = await ytdl.getInfo(result.first.url)
+            let result = await searcher.search(args.join(" "), { type: "video" })
         if(result.first === null || result.totalResults === 0) 
-            return message.channel.send("No result was found")
+                return message.channel.send("No result was found")
+            const songInfo = await ytdl.getInfo(result.first.url)
 
             let song = {
                 title: songInfo.videoDetails.title,
