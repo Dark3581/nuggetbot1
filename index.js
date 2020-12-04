@@ -228,12 +228,16 @@ client.on("message", async(message) => {
         for(var i = 1; i < serverQueue.songs.length; i++){
             qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
         }
+        if (loopall === true) lMsg = 'On'
+        if (loopone === true) lMsg+= 'Once'
+        
         const queueE = new Discord.MessageEmbed()
             .setTitle('Nugget Music Queue')
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Queue', value: qMsg },
-                { name: '\u200B', value: '\u200B' },
+                { name: 'Loop', value: iMsg },
+                { name: '\u200B', value: '\u200B' }
             )
 
 
