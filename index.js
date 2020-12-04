@@ -214,9 +214,9 @@ client.on("message", async(message) => {
                 message.channel.send("Please specify what loop you want. `.loop once/on/off`"); 
         }
         let lMsg = ''
-        if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
-        if (serverQueue.loopone === true) lMsg = 'Once'
-        if (serverQueue.loopall === true) lMsg = 'On'
+         if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
+        else if (serverQueue.loopone === true) lMsg = 'Once'
+        else if (serverQueue.loopall === true) lMsg = 'On'
     }
     function Queue(serverQueue){
         if(!serverQueue)
