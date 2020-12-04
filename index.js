@@ -73,7 +73,7 @@ client.on("message", async(message) => {
         }else{
             let result = await searcher.search(args.join(" "), { type: "video" })
         if(result.first === null || result.totalResults === 0) 
-                return message.channel.send("No result was found")
+                return message.channel.send(":x: **No results**")
             const songInfo = await ytdl.getInfo(result.first.url)
 
             let song = {
@@ -226,7 +226,7 @@ client.on("message", async(message) => {
             
 
         let nowPlaying = serverQueue.songs[0];
-        let qMsg =  `Now playing: ${nowPlaying.title}\n--------------------------\n`
+        let qMsg =  `${nowPlaying.title}\n \n`
         let lMsg = ''
             if (serverQueue.loopall === false && serverQueue.loopone === false) lMsg = 'Off'
            else if (serverQueue.loopone === true) lMsg = 'Once'
@@ -241,7 +241,7 @@ client.on("message", async(message) => {
             .setTitle('Nugget Music Queue')
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
-                { name: 'Queue', value: qMsg },
+                { name: 'Now Playing', value: qMsg },
                 {name: 'Loop', value: lMsg },
                 { name: '\u200B', value: '\u200B' }
             )
