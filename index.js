@@ -183,6 +183,11 @@ client.on("message", async(message) => {
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
             return message.channel.send('Please specify what loop you want. `.loop once/on/off`')
+        if (loopall === false && loopone === false) let lMsg = "Off"
+        if (loopall === true) let lMsg = "On"
+        if (loopone === true) let lMsg = "Once"
+
+
         
 
         switch(args[0].toLowerCase()){
@@ -234,6 +239,7 @@ client.on("message", async(message) => {
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Queue', value: qMsg },
+                {name: 'Loop', value: lMsg },
                 { name: '\u200B', value: '\u200B' }
             )
 
