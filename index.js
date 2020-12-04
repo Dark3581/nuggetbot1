@@ -183,10 +183,6 @@ client.on("message", async(message) => {
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
             return message.channel.send('Please specify what loop you want. `.loop once/on/off`')
-        let lMsg;
-        if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
-        if (serverQueue.loopone === true) lMsg = 'Once'
-        if (serverQueue.loopall === true) lMsg = 'On'
 
         switch(args[0].toLowerCase()){
            case 'on':
@@ -199,7 +195,7 @@ client.on("message", async(message) => {
                     message.channel.send("Loop has been truned off!");
 
                break;
-            case 'one':
+            case 'once':
                 serverQueue.loopone = !serverQueue.loopone;
                 serverQueue.loopall = false;
 
@@ -217,6 +213,10 @@ client.on("message", async(message) => {
             default:
                 message.channel.send("Please specify what loop you want. `.loop once/on/off`"); 
         }
+        let lMsg;
+        if (serverQueue.loopall === false && loopone === false) lMsg = 'Off'
+        if (serverQueue.loopone === true) lMsg = 'Once'
+        if (serverQueue.loopall === true) lMsg = 'On'
     }
     function Queue(serverQueue){
         if(!serverQueue)
