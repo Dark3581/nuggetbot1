@@ -74,7 +74,8 @@ client.on("message", async(message) => {
             let result = await searcher.search(args.join(" "), { type: "video" })
         if(result.first === null || result.totalResults === 0) 
                 return message.channel.send(":x: **No results**")
-        if(message.guild.voiceConnection === null) return
+        if(message.guild.voiceConnection === null)
+        return serverQueue.connection.dispatcher.end()
             const songInfo = await ytdl.getInfo(result.first.url)
 
             let song = {
