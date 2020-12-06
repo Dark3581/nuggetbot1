@@ -266,8 +266,7 @@ Stop
 Resume
 Skip
 Queue
-Loop <On/Once/Off>
-                 \`\`\``, 
+Loop <On/Once/Off>\`\`\``, 
                  inline: true}, 
             )
             .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
