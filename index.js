@@ -260,13 +260,13 @@ client.on("message", async(message) => {
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Commands', value: `\`\`\`
-                 Play <Song/YT Link>
-                 Pause
-                 Stop
-                 Resume
-                 Skip
-                 Queue
-                 Loop <On/Once/Off>
+Play <Song/YT Link>
+Pause
+Stop
+Resume
+Skip
+Queue
+Loop <On/Once/Off>
                  \`\`\``, 
                  inline: true}, 
             )
