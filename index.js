@@ -57,7 +57,7 @@ client.on("message", async(message) => {
     if(!cmd) return
 
     try {
-        cmd.run(message);
+        cmd.run(client, message, args, queue, searcher);
     }catch (err){
         return console.error(err)
     }
