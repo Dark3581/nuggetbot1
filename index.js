@@ -9,6 +9,8 @@ const fs = require('fs')
 
 const { YTSearcher } = require('ytsearcher');
 
+const queue = new Map();
+
 const searcher = new YTSearcher({
     key: process.env.youtube_api,
     revealed: true
@@ -33,7 +35,7 @@ fs.readdir('./commands/', (e, f) =>{
     })
 })
 
-const queue = new Map();
+
 
 client.on("ready", () => {
     console.log("I am online!")
