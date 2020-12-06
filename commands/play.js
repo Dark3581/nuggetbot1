@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const ytdl = require('ytdl-core');
 const ytpl = require('ytpl')
 module.exports.run = async (client, message, args, queue, searcher ) => {
+    const serverQueue = queue.get(message.guild.id);
     const vc = message.member.voice.channel;
     if(!vc)
         return message.channel.send('Join a VC');
@@ -25,7 +26,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
     }
 
     async function videoHandler(songInfo, message, vc, playlist = false){
-        const serverQueue =queue.get(message.guild.id);
+        const serverQueue = queue.get(message.guild.id);
         const song = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
