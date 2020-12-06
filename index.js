@@ -106,6 +106,7 @@ client.on("message", async(message) => {
                     console.error(err);
                     queue.delete(message.guild.id);
                     return message.channel.send(`Unable to join the voice chat ${err}`)
+
                 }
             }else{
                 serverQueue.songs.push(song);
@@ -241,8 +242,10 @@ client.on("message", async(message) => {
             .setTitle('Nugget Music Queue')
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
-                { name: 'Now Playing', value: qMsg },
-                {name: 'Loop', value: lMsg },
+                { name: 'Now Playing',
+                 value: qMsg },
+                 {name: 'Queue Length', value: i, inline: true },
+                {name: 'Loop', value: lMsg, inline: true },
             )
 
 
