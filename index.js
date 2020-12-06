@@ -75,7 +75,7 @@ client.on("message", async(message) => {
         if(result.first === null || result.totalResults === 0) 
                 return message.channel.send(":x: **No results**")
         if(message.guild.voiceConnection === 'null')
-        return serverQueue.songs = [];
+        return queue.delete(message.guild.id);
             const songInfo = await ytdl.getInfo(result.first.url)
 
             let song = {
