@@ -72,7 +72,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             return message.channel.send(msg);  
             }
     }
-}
+
 function play(guild, song){
     const serverQueue = queue.get(guild.id);
     if(!song){
@@ -103,7 +103,7 @@ function play(guild, song){
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
-        serverQueue.txtChannel.send(msg)
+        serverQueue.txtChannel.send(msg)}
 }
 
 module.exports.config = {
