@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
     let url = args.join('');
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
-        await ytdpl(url).then(async playlist => {
+        await ytpl(url).then(async playlist => {
             console.log(playlist)
         })
     }
