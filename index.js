@@ -256,7 +256,6 @@ client.on("message", async(message) => {
         const embed = new Discord.MessageEmbed()
             .setTitle('Nugget Music Commands')
             .setURL('https://discord.gg/YtppaeN')
-            .setDescription('\u200B')
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
                 { name: 'Commands', value: `\`\`\`
