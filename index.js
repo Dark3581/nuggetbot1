@@ -27,7 +27,7 @@ fs.readdir('./commands/', (e, f) =>{
         let cmdName = cmd.config.name;
         client.commands.set(cmdName, cmd)
         cmd.config.aliases.forEach(alias => {
-            client.alias.set(alias, cmdName);
+            client.aliases.set(alias, cmdName);
         })
 
     })
