@@ -233,7 +233,7 @@ client.on("message", async(message) => {
            else if (serverQueue.loopall === true) lMsg = 'On'
 
         for(var i = 1; i < serverQueue.songs.length; i++){
-            qMsg += `${i}. \`${serverQueue.songs[i].title}\`\n`
+            qMsg += `\`${i}.\` \`${serverQueue.songs[i].title}\`\n`
     
         }
         
