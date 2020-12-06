@@ -110,7 +110,7 @@ client.on("message", async(message) => {
                 }
             }else{
                 serverQueue.songs.push(song);
-                return message.channel.send(`The song has been added \`${song.title}\``);
+                return message.channel.send(`**Added** \`${song.title}\` to queue`);
             }
         }
     }
@@ -165,7 +165,7 @@ client.on("message", async(message) => {
             return message.channel.send("The song is already paused");
         
         serverQueue.connection.dispatcher.pause();
-        message.channel.send("The song has been paused!");
+        message.channel.send(":pause_button: **Paused**");
     
 
     }
@@ -178,7 +178,7 @@ client.on("message", async(message) => {
             return message.channel.send("The song is already playing!");
      
         serverQueue.connection.dispatcher.resume();
-        message.channel.send("The song has been resumed!");
+        message.channel.send(":arrow_forward: **Resumed**");
     }
     function Loop(args, serverQueue){
         if(!serverQueue)
@@ -186,7 +186,7 @@ client.on("message", async(message) => {
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
-            return message.channel.send('Please specify what loop you want. `.loop once/on/off`')
+            return message.channel.send('Please specify what loop you want: `.loop <Once/On/Off>`')
 
         switch(args[0].toLowerCase()){
            case 'on':
@@ -194,9 +194,9 @@ client.on("message", async(message) => {
                serverQueue.loopone = false;
 
                if(serverQueue.loopall === true)
-                   message.channel.send("Loop has been turned on!");
+                   message.channel.send(":repeat: **Loop On**");
                else
-                    message.channel.send("Loop has been truned off!");
+                    message.channel.send(":repeat: **Loop Off**");
 
                break;
             case 'once':
@@ -204,18 +204,18 @@ client.on("message", async(message) => {
                 serverQueue.loopall = false;
 
                 if(serverQueue.loopone === true)
-                    message.channel.send("Song will be looped once");
+                    message.channel.send(":repeat_one: **Looped Once**");
                 else
-                    message.channel.send("Loop once has been truned off!");
+                    message.channel.send(":repeat: **Loop Off**");
                 break;
             case 'off':
                     serverQueue.loopall = false;
                     serverQueue.loopone = false;
 
-                    message.channel.send("Loop has been turned off!");
+                    message.channel.send(":repeat: **Loop Off**");
                 break;
             default:
-                message.channel.send("Please specify what loop you want. `.loop once/on/off`"); 
+                message.channel.send("Please specify what loop you want: `.loop <Once/On/Off>`"); 
         }
         
     }
@@ -265,7 +265,7 @@ Stop
 Resume
 Skip
 Queue
-Loop <On/Once/Off>\`\`\``, 
+Loop <Once/On/Off>\`\`\``, 
                  inline: true}, 
             )
             .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
