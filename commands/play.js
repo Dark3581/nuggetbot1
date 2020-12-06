@@ -9,6 +9,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
     let url = args.join('');
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
         await ytpl(url).then(async playlist => {
+            message.channel.send(`Playlist:"${playlist.title}"**Added**`)
             playlist.items.forEach(async item => {
         await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true);    
             })
@@ -60,12 +61,12 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         }else{
             serverQueue.songs.push(song);
-            if(playlist) return message.channel.send('Playlist **Added**')
+            if(playlist) return undefined
 
             let dur = `${parseInt(song.vLength / 60)}:${song.vLength - 60 * parseInt(song.vLength / 60) }`
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
-                .addField(song.title, '______')
+                .addField(song.title, )
                 .addField('Duration: ', dur)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
@@ -98,11 +99,11 @@ function play(guild, song){
         let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60) }`
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
-            .addField(serverQueue.song[0].title, '______')
+            .addField(serverQueue.song[0].title,)
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
-        serverQueue.txtChannel.send(`**Playing** :notes:  \`${serverQueue.songs[0].title}\` - Now!`)
+        serverQueue.txtChannel.send(msg)
 }
 
 module.exports.config = {
