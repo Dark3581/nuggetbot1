@@ -243,7 +243,6 @@ client.on("message", async(message) => {
             .addFields(
                 { name: 'Now Playing', value: qMsg },
                 {name: 'Loop', value: lMsg },
-                { name: '\u200B', value: '\u200B' }
             )
 
 
