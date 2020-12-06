@@ -256,23 +256,19 @@ client.on("message", async(message) => {
         const embed = new Discord.MessageEmbed()
             .setTitle('Nugget Music Commands')
             .setURL('https://discord.gg/YtppaeN')
+            .setDescription('\u200B')
             .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
             .addFields(
-                { name: 'Commands', value: `
-                 \"Stop\" - Stops what ever is playing on the bot
-        
-                \"Play SONG\" - Plays the song you want
-                
-                \"Skip\" - Skips the current song playing
-                
-                \"Queue\" - Shows the current queue
-                
-                \"Loop once/on/off\" - Loops the song playing
-                
-                \"Pause\" - Pauses the song playing
-                
-                \"Resume\" - Resumes the song that was paused` },
-                { name: '\u200B', value: '\u200B' },
+                { name: 'Commands', value: `\`\`\`
+                 Play <Song/Youtube Link>
+                 Pause
+                 Stop
+                 Resume
+                 Skip
+                 Queue
+                 Loop <On/Once/Off>
+                 \`\`\``, 
+                 inline: true}, 
             )
             .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
             .setFooter('Discord Invite: https://discord.gg/YtpaeN Discord Tag:Donny#6666');
