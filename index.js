@@ -244,7 +244,7 @@ client.on("message", async(message) => {
             .addFields(
                 { name: 'Now Playing',
                  value: qMsg },
-                 {name: 'Queue Length', value: i[i], inline: true },
+                 {name: 'Queue Length', value: i, inline: true },
                 {name: 'Loop', value: lMsg, inline: true },
             )
 
