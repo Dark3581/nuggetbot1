@@ -99,7 +99,7 @@ function play(guild, song){
         let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60) }`
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
-            .addField(serverQueue.song[0].title,)
+            .addField(serverQueue.songs[0].title,)
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
