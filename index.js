@@ -3,6 +3,7 @@
 const { executionAsyncResource } = require('async_hooks');
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
+const fs = require('fs')
 
 
 
@@ -14,6 +15,23 @@ const searcher = new YTSearcher({
 });
 
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+
+fs.readdir('./commands/', (e, f) =>{
+    if(e) return console.error(e);
+    f.forEach(file => {
+        if(!file.endsWith('.js')) return
+        console.log(`${file} has been loaded`)
+        let cmd = require(`./commands/${file}`);
+        let cmdName = cmd.config.name;
+        client.commands.set(cmdName, cmd)
+        cmd.config.aliases.forEach(alias => {
+            client.alias.set(alias, cmdName);
+        })
+
+    })
+})
 
 const queue = new Map();
 
@@ -33,6 +51,16 @@ client.on("message", async(message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
+
+    const cmd = client.commands.get(command) || client.commands.get(client.alias.get(command))
+
+    if(!cmd) return
+
+    try {
+        cmd.run(message);
+    }catch (err){
+        return console.error(err)
+    }
     switch(command){
         case 'play':
             execute(message, serverQueue);
