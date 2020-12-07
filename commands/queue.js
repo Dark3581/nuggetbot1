@@ -39,6 +39,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
         serverQueue.songs.splice(args[0])
         if (serverQueue.songs.length < parseInt(args[0]))
             return message.channel.send("there is no song on that number")
+        break;
 
         }
 
