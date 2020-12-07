@@ -67,6 +67,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
                 .addField(song.title, )
+                .addField('\u200B', "\u200B")
                 .addField('Duration: ', dur)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
@@ -100,6 +101,7 @@ function play(guild, song){
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
             .addField(serverQueue.songs[0].title,)
+            .addField('\u200B', "\u200B")
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
