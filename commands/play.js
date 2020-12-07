@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         })
 }catch(err){
     return message.channel.send(`Please insert a valid link....\n${err}`)
-}}
+    }}
 
     else{
         let result = await searcher.search(args.join(' '), { type: 'video'})
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         const song = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
-            vLength: songInfo.videoDetails.lengthSeconds,
+            vLength: timeFormat(songInfo.videoDetails.lengthSeconds),
             thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url
         }
         if(!serverQueue){
@@ -77,7 +77,21 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             return message.channel.send(msg);  
             }
     }
-
+function timeFormat(duration) {
+        var hrs = ~~(duration / 3600);
+        var mins = ~~((duration % 3600) / 60);
+        var secs = ~~duration % 60;
+      
+        var ret = "";
+      
+        if (hrs > 0) {
+          ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+        }
+      
+        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+        ret += "" + secs;
+        return ret;
+      }
 function play(guild, song){
     const serverQueue = queue.get(guild.id);
     if(!song){
