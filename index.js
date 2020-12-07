@@ -61,6 +61,8 @@ client.on("message", async(message) => {
     ))
     return message.channel.send('I must have embed links permission')
 
+    
+
 
     if(!cmd) return
 
