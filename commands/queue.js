@@ -34,15 +34,6 @@ module.exports.run = (client, message, args, queue, searcher ) => {
 
         message.channel.send(queueE);
 
-    switch(args[0].toLowerCase()){
-    case 'remove':
-        serverQueue.songs.splice(args[0])
-        if (serverQueue.songs.length < parseInt(args[0]))
-            return message.channel.send("there is no song on that number")
-        break;
-
-        }
-
 }
 
 module.exports.config = {
