@@ -28,6 +28,20 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         return videoHandler(songInfo, message, vc)
 
     }
+    function timeFormat(duration) {
+        var hrs = ~~(duration / 3600);
+        var mins = ~~((duration % 3600) / 60);
+        var secs = ~~duration % 60;
+      
+        var ret = "";
+      
+        if (hrs > 0) {
+          ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+        }
+      
+        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+        ret += "" + secs;
+        return ret; }
 
     async function videoHandler(songInfo, message, vc, playlist = false){
         const serverQueue = queue.get(message.guild.id);
@@ -72,26 +86,13 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
                 .addField(song.title, '\u200B')
-                .addField('Duration:', serverQueue.song[0].vLength, )
+                .addField('Duration:', song.vLength, )
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
     }
-function timeFormat(duration) {
-        var hrs = ~~(duration / 3600);
-        var mins = ~~((duration % 3600) / 60);
-        var secs = ~~duration % 60;
-      
-        var ret = "";
-      
-        if (hrs > 0) {
-          ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-        }
-      
-        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-        ret += "" + secs;
-        return ret;
-      }
+
+
 function play(guild, song){
     const serverQueue = queue.get(guild.id);
     if(!song){
