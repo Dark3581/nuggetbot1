@@ -8,13 +8,17 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
     let url = args.join('');
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
+        try{
         await ytpl(url).then(async playlist => {
             message.channel.send(`Playlist \`${playlist.title}\` **Added**`)
             playlist.items.forEach(async item => {
         await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true);    
             })
         })
-} 
+}catch(err){
+    return message.channel.send(`Please insert a valid link....\n${err}`)
+}}
+
     else{
         let result = await searcher.search(args.join(' '), { type: 'video'})
         if(result.first == null)
