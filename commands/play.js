@@ -68,11 +68,11 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             serverQueue.songs.push(song);
             if(playlist) return undefined
 
-            let dur = `${parseInt(song.vLength / 60)}:${song.vLength - 60 * parseInt(song.vLength / 60) }`
+            
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
                 .addField(song.title, '\u200B')
-                .addField('Duration: ', dur)
+                .addField('Duration: ', song.vLength)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
