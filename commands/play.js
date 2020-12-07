@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
     let url = args.join('');
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
         await ytpl(url).then(async playlist => {
-            message.channel.send(`Playlist"\`${playlist.title}\`**Added**`)
+            message.channel.send(`Playlist\`${playlist.title}\`**Added**`)
             playlist.items.forEach(async item => {
         await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true);    
             })
