@@ -56,6 +56,12 @@ client.on("message", async(message) => {
 
     const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
 
+    if(!message.guild.me.permissions.has(
+        "EMBED_LINKS" 
+    ))
+    return message.channel.send('I must have embed links permission')
+
+
     if(!cmd) return
 
     try {
