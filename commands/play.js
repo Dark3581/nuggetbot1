@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true);    
             })
         })
-    }
+} 
     else{
         let result = await searcher.search(args.join(' '), { type: 'video'})
         if(result.first == null)
@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
         let songInfo = await ytdl.getInfo(result.first.url);
         return videoHandler(songInfo, message, vc)
+
     }
 
     async function videoHandler(songInfo, message, vc, playlist = false){
@@ -67,6 +68,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
                 .addField(song.title)
+                .addField('-')
                 .addField('Duration: ', dur)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
@@ -100,6 +102,7 @@ function play(guild, song){
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
             .addField(serverQueue.songs[0].title)
+            .addField('-')
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
