@@ -72,7 +72,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
                 .addField(song.title, '\u200B')
-                .addField('Duration: ', song.vLength)
+                .addField(`Duration: ${song.vLength}`, )
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
