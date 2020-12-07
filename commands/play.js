@@ -67,8 +67,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let dur = `${parseInt(song.vLength / 60)}:${song.vLength - 60 * parseInt(song.vLength / 60) }`
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
-                .addField(song.title)
-                .addField('-')
+                .addField(song.title, '\u200B')
                 .addField('Duration: ', dur)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
@@ -101,8 +100,7 @@ function play(guild, song){
         let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60) }`
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
-            .addField(serverQueue.songs[0].title)
-            .addField('-')
+            .addField(serverQueue.songs[0].title, '\u200B')
             .addField('Duration: ', dur)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 

@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js');
-module.exports.run = (message) =>{
+module.exports.run = (client, message, args, queue, searcher) =>{
     const embed = new Discord.MessageEmbed()
     .setTitle('Nugget Music Commands')
     .setURL('https://discord.gg/YtppaeN')
