@@ -116,15 +116,11 @@ function play(guild, song){
             play(guild, serverQueue.songs[0]);
             
         })
-        let oMsg =  `${nowPlaying.title}\n \n`
-        for(var i = 1; i < serverQueue.songs.length; i++){
-            oMsg += ` **${i}.** \`${serverQueue.songs[i].title}\`\n`
         
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
             .addField(serverQueue.songs[0].title, '\u200B')
             .addField('Duration: ', song.vLength)
-            .addField('Position in queue: ', i,)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
         serverQueue.txtChannel.send(msg)}
@@ -133,4 +129,4 @@ function play(guild, song){
 module.exports.config = {
     name: 'play',
     aliases: ['p']
-}}
+}
