@@ -40,7 +40,7 @@ fs.readdir('./commands/', (e, f) =>{
 client.on("ready", () => {
     console.log("I am online!")
     console.log(`I am in ${client.guilds.cache.size} servers`)
-    client.user.setActivity('The McDonalds Drive-Thru', {type: 'WATCHING'});
+    client.user.setActivity('Plz don\'t mute me', {type: 'STREAMING'});
 })
 
 client.on("message", async(message) => {
