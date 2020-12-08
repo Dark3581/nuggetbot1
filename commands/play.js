@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const ytdl = require('ytdl-core');
 const ytpl = require('ytpl')
+const userl = user.displayAvatarURL()
 module.exports.run = async (client, message, args, queue, searcher ) => {
     const vc = message.member.voice.channel;
     if(!vc)
@@ -85,7 +86,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
-                .setAuthor(user.displayAvatarURL())
+                .setAuthor(userl)
                 .addField(song.title, '\u200B')
                 .addField('Duration:', song.vLength, )
                 .addField('Position in queue', serverQueue.songs.lastIndexOf(song), )
