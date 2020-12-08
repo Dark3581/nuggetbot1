@@ -13,6 +13,7 @@ Stop
 Resume
 Skip
 Queue
+Queue remove <Queue position>
 Loop <Once/On/Off>\`\`\``, 
          inline: true}, 
     )
