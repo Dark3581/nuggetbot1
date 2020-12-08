@@ -81,11 +81,9 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         }else{
             serverQueue.songs.push(song);
             if(playlist) return undefined
-            let userl = client.user.displayAvatarURL()
         
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
-                .setAuthor(userl)
                 .addField(song.title, '\u200B')
                 .addField('Duration:', song.vLength, )
                 .addField('Position in queue', serverQueue.songs.lastIndexOf(song), )
