@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
 const ytdl = require('ytdl-core');
 const ytpl = require('ytpl')
-const userl = user.displayAvatarURL()
 module.exports.run = async (client, message, args, queue, searcher ) => {
     const vc = message.member.voice.channel;
     if(!vc)
@@ -82,7 +81,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         }else{
             serverQueue.songs.push(song);
             if(playlist) return undefined
-    
+            const userl = user.displayAvatarURL()
         
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
