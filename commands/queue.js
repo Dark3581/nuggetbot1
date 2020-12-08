@@ -17,6 +17,9 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             qMsg += ` **${i}.** \`${serverQueue.songs[i].title}\`\n`
     
         }
+            if (args !== undefined ){
+
+            
             if (args.length > 0)
             if (parseInt(args[1]) < 1 )
                 return message.channel.send('There is nothing to remove on that position') 
@@ -29,7 +32,8 @@ module.exports.run = (client, message, args, queue, searcher ) => {
 
                 
             
-                }
+                } 
+            }
         
         
         const queueE = new Discord.MessageEmbed()
