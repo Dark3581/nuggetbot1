@@ -16,7 +16,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
                     break;}}
 
             //console.log(serverQueue.songs)
-            console.log(args[0])
+            //console.log(args[0])
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `${nowPlaying.title}\n \n`
         let lMsg = ''
