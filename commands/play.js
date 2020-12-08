@@ -85,8 +85,8 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             let msg = new Discord.MessageEmbed()
                 .addField(song.title, '\u200B')
                 .setAuthor('Added to queue', message.author.avatarURL())
-                .addField('Duration:', song.vLength, {inline: true} )
-                .addField('Position in queue', serverQueue.songs.lastIndexOf(song), {inline: true} )
+                .addField('Duration:', song.vLength, true )
+                .addField('Position in queue', serverQueue.songs.lastIndexOf(song), true )
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
