@@ -7,8 +7,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             return message.channel.send("There is no music currently playing!");
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
-            
-
+                    
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `${nowPlaying.title}\n \n`
         let lMsg = ''
@@ -38,12 +37,10 @@ module.exports.run = (client, message, args, queue, searcher ) => {
                  value: qMsg },
                  {name: 'Queue Length', value: i, inline: true },
                 {name: 'Loop', value: lMsg, inline: true },
+
             )
-
-
         message.channel.send(queueE);
-
-}
+        }
 
 module.exports.config = {
     name: 'queue',
