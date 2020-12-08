@@ -10,12 +10,13 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             if (args.length > 0){
         switch(args[0].toLowerCase()){
                 case 'remove':
-                    serverQueue.songs.splice( parseInt(args[0])+1, 1)
+                    serverQueue.songs.splice( parseInt(args[1]), 1)
                     if (serverQueue.songs.length < parseInt(args[0]))
                         return message.channel.send("there is no song on that number")
                     break;}}
 
-            console.log(serverQueue.songs)
+            //console.log(serverQueue.songs)
+            console.log(args[0])
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `${nowPlaying.title}\n \n`
         let lMsg = ''
