@@ -1,5 +1,3 @@
-
-
 const Discord = require('discord.js');
 module.exports.run = (client, message, args, queue, searcher ) => {
     const serverQueue = queue.get(message.guild.id)
@@ -26,8 +24,9 @@ module.exports.run = (client, message, args, queue, searcher ) => {
                 if (serverQueue.songs.length < parseInt(args[0]))
                     return message.channel.send("there is no song on that number")
                 break;
-        
+            
                 }
+        
         
         const queueE = new Discord.MessageEmbed()
             .setTitle('Nugget Music Queue')
@@ -39,7 +38,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
                 {name: 'Loop', value: lMsg, inline: true },
 
             )
-        message.channel.send(queueE);
+        message.channel.send(queueE)
         }
 
 module.exports.config = {
