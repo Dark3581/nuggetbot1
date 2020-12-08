@@ -83,9 +83,8 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             if(playlist) return undefined
         
             let msg = new Discord.MessageEmbed()
-                .setTitle('**Added**')
                 .addField(song.title, '\u200B')
-                .setAuthor(message.author.avatarURL())
+                .setAuthor('**Added**', message.author.avatarURL())
                 .addField('Duration:', song.vLength, )
                 .addField('Position in queue', serverQueue.songs.lastIndexOf(song), )
                 .setThumbnail(song.thumbnail)
