@@ -20,6 +20,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             qMsg += ` **${i}.** \`${serverQueue.songs[i].title}\`\n`
     
         }
+            if (args.length > 0)
         switch(args[0].toLowerCase()){
             case 'remove':
                 serverQueue.songs.splice( parseInt(args[0]-1), 1)

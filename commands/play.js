@@ -87,6 +87,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
                 .setTitle('**Added**')
                 .addField(song.title, '\u200B')
                 .addField('Duration:', song.vLength, )
+                .addField('Position in queue', serverQueue.songs.lastIndexOf(song) + 1)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
