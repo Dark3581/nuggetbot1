@@ -17,12 +17,11 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             qMsg += ` **${i}.** \`${serverQueue.songs[i].title}\`\n`
     
         }
-            if (args !== undefined ){
-
             
-            if (args.length > 0)
             if (parseInt(args[1]) < 1 )
-                return message.channel.send('There is nothing to remove on that position') 
+        return message.channel.send('There is nothing to remove on that position')
+            
+            if (args.length > 0) 
         switch(args[0].toLowerCase()){
             case 'remove':
                 serverQueue.songs.splice( parseInt(args[0]), 1)
@@ -33,7 +32,7 @@ module.exports.run = (client, message, args, queue, searcher ) => {
                 
             
                 } 
-            }
+            
         
         
         const queueE = new Discord.MessageEmbed()
