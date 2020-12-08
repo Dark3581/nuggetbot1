@@ -20,6 +20,14 @@ module.exports.run = (client, message, args, queue, searcher ) => {
             qMsg += ` **${i}.** \`${serverQueue.songs[i].title}\`\n`
     
         }
+        switch(args[0].toLowerCase()){
+            case 'remove':
+                serverQueue.songs.splice( parseInt(args[0]-1), 1)
+                if (serverQueue.songs.length < parseInt(args[0]))
+                    return message.channel.send("there is no song on that number")
+                break;
+        
+                }
         
         const queueE = new Discord.MessageEmbed()
             .setTitle('Nugget Music Queue')
