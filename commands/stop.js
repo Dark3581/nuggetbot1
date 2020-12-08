@@ -5,7 +5,7 @@ if(!serverQueue)
     return message.channel.search('There is no music playing!')
 if(message.member.voice.channel != message.guild.me.voice.channel)
     return message.channel.send("You need to join the voice chat first!")
-        message.react('🇰');
+        message.react("642435669276360744");
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
 
