@@ -42,9 +42,6 @@ client.on("ready", () => {
     console.log(`I am in ${client.guilds.cache.size} servers`)
     client.user.setActivity('Plz don\'t mute me', {type: 'STREAMING'});
 })
-client.on(
-    "voiceStateUpdate"
-)
 client.on("message", async(message) => {
     if (message.channel.type === "dm") return
     const prefix = '.';
