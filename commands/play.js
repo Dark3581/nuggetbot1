@@ -81,7 +81,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         }else{
             serverQueue.songs.push(song);
             if(playlist) return undefined
-            const userl = user.displayAvatarURL()
+            let userl = user.displayAvatarURL()
         
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
