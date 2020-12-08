@@ -81,15 +81,14 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         }else{
             serverQueue.songs.push(song);
             if(playlist) return undefined
-    const avatarL = 
-        user.avatarURL({ format: 'png', dynamic: true, size: 1024 });
-            
+    
+        
             let msg = new Discord.MessageEmbed()
                 .setTitle('**Added**')
+                .setAuthor(user.displayAvatarURL())
                 .addField(song.title, '\u200B')
                 .addField('Duration:', song.vLength, )
                 .addField('Position in queue', serverQueue.songs.lastIndexOf(song), )
-                .setImage(avatarL)
                 .setThumbnail(song.thumbnail)
             return message.channel.send(msg);  
             }
