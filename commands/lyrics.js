@@ -42,7 +42,7 @@ module.exports.run = async(client, message, args, queue, searcher ) => {
     })
 }
 
-async function finder(artsit, songName, message, pages){
+async function finder(artist, songName, message, pages){
     let fullLyrics = await lyricsFinder(artist, songName) || "Not Found"
 
     for (let i = 0; i < fullLyrics.length; i += 2048){
