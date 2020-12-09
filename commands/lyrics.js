@@ -38,6 +38,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             if (currentPage !== 0){
                 currentPage -= 1;
                 lyricEmbed.edit(`Lyrics ${currentPage+1}/${pages.length}`, pages[currentPage])
+                message.reactions.resolve(reaction).users.remove(user)
             }
         }
     })
