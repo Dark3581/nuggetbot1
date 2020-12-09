@@ -27,17 +27,17 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
 
     const collector = lyricEmbed.createReactionCollector(reactionFilter);
 
-    collector.on('collect', (reaction, user) => {
+    collector.on('collect', (reaction, user,) => {
         if(reaction.emoji.name === '▶️'){
             if(currentPage < pages.length-1){
                 currentPage+=1;
-                lyricEmbed.edit(`Lyrics ${currentPage+1}/${page.length}`, page[currentPage]);
+                lyricEmbed.edit(`Lyrics ${currentPage+1}/${pages.length}`, pages[currentPage]);
 
             }
         }else if(reaction.emoji.name === '◀️'){
             if (currentPage !== 0){
                 currentPage -= 1;
-                lyricEmbed.edit(`Lyrics ${currentPage+1}/${page.length}`, page[currentPage])
+                lyricEmbed.edit(`Lyrics ${currentPage+1}/${pages.length}`, pages[currentPage])
             }
         }
     })
