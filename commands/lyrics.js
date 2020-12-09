@@ -26,7 +26,7 @@ module.exports.run = async(client, message, args, queue, searcher ) => {
 
     const collector = lyricEmbed.createReactionCollector(reactionFilter);
 
-    collector.on('collect', (reaction, user) => {
+    collector.on('collect', (reaction, user, pages) => {
         if(reaction.emoji.name === '▶️'){
             if(currentPage < pages.length-1){
                 currentPage+=1;
