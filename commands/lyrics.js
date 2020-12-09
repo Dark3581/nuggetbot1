@@ -17,7 +17,7 @@ module.exports.run = async(client, message, args, queue, searcher ) => {
     message.channel.send('Enter the song name');
     await message.channel.awaitMessages(messageFilter, { max:1, time: 15000}).then(async collected => {
         songName = collected.first().content;
-        await finder (artsit, songName, message, pages)
+        await finder (artist, songName, message, pages)
     })
 
     const lyricEmbed = await message.channel.send(`Lyrics: ${currentPage+1}/${pages.length}`, pages[currentPage])
