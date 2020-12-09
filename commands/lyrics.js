@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const lyricsFinder = require('lyrics-finder');
 
-module.exports.run = async(client, message, args, queue, searcher ) => {
+module.exports.run = async(client, message, args, queue, searcher,   ) => {
+    
     if (args.length <1)
         return message.channel.send('Please enter the artist name first .lyrics <Arsist name>')
 
@@ -15,7 +16,7 @@ module.exports.run = async(client, message, args, queue, searcher ) => {
     const reactionFilter = (reaction, user) => ['◀️', '▶️'].includes(reaction.emoji.name) && (message.author.id === user.id)
 
     message.channel.send('Enter the song name');
-    await message.channel.awaitMessages(messageFilter, { max:1, time: 15000}).then(async collected => {
+    await message.channel.awaitMessages(messageFilter, { max: 1, time: 15000 }).then(async collected => {
         songName = collected.first().content;
         await finder (artist, songName, message, pages)
     })
@@ -26,7 +27,7 @@ module.exports.run = async(client, message, args, queue, searcher ) => {
 
     const collector = lyricEmbed.createReactionCollector(reactionFilter);
 
-    collector.on('collect', (reaction, user, pages) => {
+    collector.on('collect', (reaction, user) => {
         if(reaction.emoji.name === '▶️'){
             if(currentPage < pages.length-1){
                 currentPage+=1;
