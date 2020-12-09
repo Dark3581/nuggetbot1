@@ -32,7 +32,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             if(currentPage < pages.length-1){
                 currentPage+=1;
                 lyricEmbed.edit(`Lyrics ${currentPage+1}/${pages.length}`, pages[currentPage]);
-
+                message.reactions.resolve(reaction).users.remove(user)
             }
         }else if(reaction.emoji.name === '◀️'){
             if (currentPage !== 0){
