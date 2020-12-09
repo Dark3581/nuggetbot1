@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "lyrics-finder": "^21.4.0",
     "opusscript": "^0.0.7",
     "yt-dl-playlist": "^2.1.0",
     "ytdl-core": "^4.1.4",
