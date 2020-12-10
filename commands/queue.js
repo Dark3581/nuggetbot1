@@ -34,13 +34,13 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             if(reaction.emoji.name === '▶️'){
                 if(currentPage < embeds.length-1){
                     currentPage+=1;
-                    queueEmbed.edit(`Lyrics ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
+                    queueEmbed.edit(`Queue ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
                     message.reactions.resolve(reaction).users.remove(user)
                 }
             }else if(reaction.emoji.name === '◀️'){
                 if (currentPage !== 0){
                     currentPage -= 1;
-                    queueEmbed.edit(`Lyrics ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+                    queueEmbed.edit(`Queue ${currentPage+1}/${embeds.length}`, embeds[currentPage])
                     message.reactions.resolve(reaction).users.remove(user)
                 }
             }
@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         
         }
-function embedGenerator(serverQueue, lMsg, queueEmbed){
+function embedGenerator(serverQueue, lMsg,){
     const embeds = [];
     let songs = 10;
     for (let i = 0; i < serverQueue.songs.length; i+= 10){
@@ -79,7 +79,7 @@ function embedGenerator(serverQueue, lMsg, queueEmbed){
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
-        .setFooter(queueEmbed)
+        .setFooter(`${currentPage+1}/${embeds.length}`, embeds[currentPage])
 
         embeds.push(msg)
         
