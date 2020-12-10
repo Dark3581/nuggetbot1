@@ -75,7 +75,10 @@ function embedGenerator(serverQueue, lMsg){
         const msg = new Discord.MessageEmbed()
         .setTitle('Nugget Music Queue')
         .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
-        .setDescription(`Now playing [${serverQueue.songs[0].title}] \n ${info} `)
+        .addField(
+            {name: 'Now Playing', value: serverQueue.songs[0].title}
+        )
+        .setDescription(`\n ${info}`)
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
