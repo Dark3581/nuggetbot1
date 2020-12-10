@@ -79,7 +79,7 @@ function embedGenerator(serverQueue, lMsg, currentPage,){
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
-        .setFooter(`${currentPage+1}/${embeds.length}`)
+        .setFooter(`${currentPage+1} ${embeds.length}`)
 
         embeds.push(msg)
         
