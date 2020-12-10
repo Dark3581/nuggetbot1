@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         
         }
-function embedGenerator(serverQueue, lMsg, currentPage, embeds){
+function embedGenerator(serverQueue, lMsg, currentPage,){
     const embeds = [];
     let songs = 10;
     for (let i = 0; i < serverQueue.songs.length; i+= 10){
