@@ -47,12 +47,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
         })
 
             //console.log(serverQueue.songs)
-            //console.log(args[0])
-        let lMsg = ''
-            if (serverQueue.loopall === false && serverQueue.loopone === false) lMsg = 'Off'
-           else if (serverQueue.loopone === true) lMsg = 'Once'
-           else if (serverQueue.loopall === true) lMsg = 'On'
-            
+            //console.log(args[0])    
             if (parseInt(args[1]) < 1 )
         return message.channel.send('There is nothing to remove on that position')
             
