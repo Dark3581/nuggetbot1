@@ -76,7 +76,7 @@ function embedGenerator(serverQueue, lMsg){
         .setTitle('Nugget Music Queue')
         .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
         .addField('Now Playing', serverQueue.songs[0].title)
-        .setDescription(`\n ${info}`)
+        .setDescription(`**Now Playing**\n${serverQueue.songs[0].title}\n \n${info}`)
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
