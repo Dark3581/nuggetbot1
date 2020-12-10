@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         
         }
-function embedGenerator(serverQueue, lMsg,){
+function embedGenerator(serverQueue, lMsg, currentPage){
     const embeds = [];
     let songs = 10;
     for (let i = 0; i < serverQueue.songs.length; i+= 10){
@@ -79,7 +79,7 @@ function embedGenerator(serverQueue, lMsg,){
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
-        .setFooter(`${currentPage+1}/${embeds.length}`, embeds[currentPage])
+        .setFooter(`${currentPage+1}/${embeds.length}`)
 
         embeds.push(msg)
         
