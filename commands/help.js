@@ -14,7 +14,8 @@ Resume
 Skip
 Queue
 Queue remove <Queue position>
-Loop <Once/On/Off>\`\`\``, 
+Loop <Once/On/Off>
+lyrics <Artist Of Song>\`\`\``, 
          inline: true}, 
     )
     .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')
