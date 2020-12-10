@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
         const embeds = embedGenerator(serverQueue, lMsg)
 
-        const queueEmbed = await message.channel.send(`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+        const queueEmbed = (`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage])
             await queueEmbed.react('◀️');
             await queueEmbed.react('▶️');
 
@@ -79,6 +79,7 @@ function embedGenerator(serverQueue, lMsg, currentPage,){
         .addFields(
              {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
+        .setFooter(queueEmbed)
 
         embeds.push(msg)
         

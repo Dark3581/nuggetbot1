@@ -5,7 +5,6 @@ module.exports.run = (client, message, args, queue, searcher ) => {
     return message.channel.send("You need to join the voice chat first");
 if(!serverQueue)
     return message.channel.send("There is nothing to skip!");
-if(serverQueue.connection.dispatcher.end() == null)return
 
 serverQueue.connection.dispatcher.end();
 
