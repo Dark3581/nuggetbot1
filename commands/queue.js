@@ -77,7 +77,7 @@ function embedGenerator(serverQueue, lMsg){
         .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
         .setDescription(`Now playing [${serverQueue.songs[0].title}](${serverQueue.songs[0].url}) \n ${info} `)
         .addFields(
-             {name: 'Queue Length', value: i, inline: true },
+             {name: 'Queue Length', value: serverQueue.songs.length, inline: true },
             {name: 'Loop', value: lMsg, inline: true },)
 
         embeds.push(msg)
