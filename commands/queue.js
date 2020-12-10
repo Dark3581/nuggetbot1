@@ -71,7 +71,7 @@ function embedGenerator(serverQueue, lMsg){
         const current = serverQueue.songs.slice(i, songs)
         songs +=10;
         let j = i
-        const info = current.map(song => `\`${++j}\`. \`${song.title}\``).join('\n')
+        const info = current.map(song => `\*\*${++j}\*\*. \`${song.title}\``).join('\n')
         const msg = new Discord.MessageEmbed()
         .setTitle('Nugget Music Queue')
         .setThumbnail('https://media.giphy.com/media/mwydbpQgyVC5vK7oXF/giphy.gif')
