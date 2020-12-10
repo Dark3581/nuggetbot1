@@ -120,7 +120,7 @@ function play(guild, song){
         let msg = new Discord.MessageEmbed()
             .setTitle('**Playing**')
             .addField(serverQueue.songs[0].title, '\u200B')
-            .addField('Duration: ', song.vLength)
+            .addField('Duration ', song.vLength)
             .setThumbnail(serverQueue.songs[0].thumbnail)
 
         serverQueue.txtChannel.send(msg)}
