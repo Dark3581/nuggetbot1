@@ -16,7 +16,12 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
                     break;}}
         let currentPage = 0;
 
-        const embeds = embedGenerator(serverQueue)
+        let lMsg = ''
+            if (serverQueue.loopall === false && serverQueue.loopone === false) lMsg = 'Off'
+           else if (serverQueue.loopone === true) lMsg = 'Once'
+           else if (serverQueue.loopall === true) lMsg = 'On'
+
+        const embeds = embedGenerator(serverQueue, lMsg)
 
         const queueEmbed = await message.channel.send(`Queue: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
             await queueEmbed.react('◀️');
@@ -64,7 +69,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         
         }
-function embedGenerator(serverQueue){
+function embedGenerator(serverQueue, lMsg){
     const embeds = [];
     let songs = 10;
     for (let i = 0; i < serverQueue.songs.length; i+= 10){
