@@ -21,7 +21,11 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             })
         }else{
             return
-        }break;
+        }
+        talkedRecently.add(message.author);
+        setTimeout(() => {
+          talkedRecently.delete(message.author);
+        }, 90000); break;
         case 'hentai':
             if(message.channel.id === '739002385531404288'||
             message.channel.id === '646849145289834506'||
@@ -42,9 +46,9 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             }else{
                 return
             }
-            talkedRecently.add(message.author.id);
+            talkedRecently.add(message.author);
         setTimeout(() => {
-          talkedRecently.delete(message.author.id);
+          talkedRecently.delete(message.author);
         }, 90000);        
 }}}
 
