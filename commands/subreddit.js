@@ -28,7 +28,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
                 .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
                 message.channel.send(memeEmbed)
                 
-            });
+            })
             
             }else{
                 return message.channel.send(':x: Wrong channel')
