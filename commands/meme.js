@@ -1,19 +1,17 @@
 const Discord = require('discord.js');
-const api = require('imageapi.js');
+const fetch = require('node-fetch');
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
-let subreddits = [
-    "comedyheaven",
-    "dank",
-    "meme",
-    'memes'
-]
-let subreddit = subreddits[Math.floor(Math.random()*(subreddits.length)-1)]
-let img = await api(subreddit)
-const memeEmbed = new MessageEmbed()
-.setTitle(`A meme from r/${subreddit}`)
-.setURL(`https://reddit.com/r/${subreddit}`)
-.setImage(img)
-message.channel.send(memeEmbed)
+let msg = await message.channel.send('Fetching meme');
+fetch('https://meme-api.herokuapp.com/gimme')
+.then(res => res.json())
+.then(json => {
+    let memeEmbed = new Discord.MessageEmbed()
+    .setTitle(json.title)
+    .setImage(json.url)
+    .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
+    msg.edit(memeEmbed)
+});
+
 }
 
 module.exports.config ={
