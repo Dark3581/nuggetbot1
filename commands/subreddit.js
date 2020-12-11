@@ -17,15 +17,16 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             .setImage(json.url)
             .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
             message.channel.send(darkEmbed)
+
+            talkedRecently.add(message.author);
+        setTimeout(() => {
+          talkedRecently.delete(message.author);
+        }, 90000);
             
             })
         }else{
             return
-        }
-        talkedRecently.add(message.author);
-        setTimeout(() => {
-          talkedRecently.delete(message.author);
-        }, 90000); break;
+        }break;
         case 'hentai':
             if(message.channel.id === '739002385531404288'||
             message.channel.id === '646849145289834506'||
@@ -40,16 +41,17 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
                 .setImage(json.url)
                 .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
                 message.channel.send(hentaiEmbed)
+
+                talkedRecently.add(message.author);
+                setTimeout(() => {
+                  talkedRecently.delete(message.author);
+                }, 90000); 
                 
             })
             
             }else{
                 return
-            }
-            talkedRecently.add(message.author);
-        setTimeout(() => {
-          talkedRecently.delete(message.author);
-        }, 90000);        
+            }       
 }}}
 
 module.exports.config = {
