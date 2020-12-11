@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+const fetch = require('node-fetch');
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
     switch(args[0].toLowerCase()){
         case 'darkhumor':    
