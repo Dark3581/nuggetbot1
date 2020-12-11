@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
     switch(args[0].toLowerCase()){
-        case 'darkhumor':    
+        case 'darkhumor':
+        if(message.channel.id === '636641555913900034'){    
         fetch('https://meme-api.herokuapp.com/gimme/Darkhumoriq')
         .then(res => res.json())
         .then(json => {
@@ -13,6 +14,9 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             message.channel.send(darkEmbed)
             
             })
+        }else{
+            return
+        }break;
         case 'hentai':
             if(message.channel.id === '739002385531404288'||
             message.channel.id === '646849145289834506'||
