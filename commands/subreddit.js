@@ -1,6 +1,11 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
+const talkedRecently = new Set();
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
+    if (talkedRecently.has(msg.author.id)) {
+        msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
+} else {
+
     switch(args[0].toLowerCase()){
         case 'darkhumor':
         if(message.channel.id === '636641555913900034'){    
@@ -26,21 +31,26 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             fetch('https://meme-api.herokuapp.com/gimme/hentai')
             .then(res => res.json())
             .then(json => {
-                let memeEmbed = new Discord.MessageEmbed()
+                let hentaiEmbed = new Discord.MessageEmbed()
                 .setTitle(json.title)
                 .setImage(json.url)
                 .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
-                message.channel.send(memeEmbed)
+                message.channel.send(hentaiEmbed)
                 
             })
             
             }else{
                 return
-            }        
-}}
+            }
+            talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          talkedRecently.delete(msg.author.id);
+        }, 90000);        
+}}}
 
 module.exports.config = {
 name: 'subreddit',
-aliases: ['sub']
+aliases: ['sub'],
+
 
 }
