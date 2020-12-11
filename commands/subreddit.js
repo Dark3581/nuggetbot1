@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const talkedRecently = new Set();
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
-    if (talkedRecently.has(msg.author.id)) {
-        msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
+    if (talkedRecently.has(message.author.id)) {
+        message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
 } else {
 
     switch(args[0].toLowerCase()){
@@ -42,9 +42,9 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             }else{
                 return
             }
-            talkedRecently.add(msg.author.id);
+            talkedRecently.add(message.author.id);
         setTimeout(() => {
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 90000);        
 }}}
 
