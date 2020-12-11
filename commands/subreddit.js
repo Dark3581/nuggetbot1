@@ -1,10 +1,16 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
+const used = new Map();
+const Duration = require('humanize-duration');
 const talkedRecently = new Set();
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
-    if (talkedRecently.has(message.author.id)) {
-        message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
-} else {
+const cooldown = used.get(message.author.id);
+if (cooldown) {
+    const remaining = Duration(cooldown - Date.now(), {units: ['h', 'm'], round: true});
+    return message.reply(`You need to wait ${remaining} before using this command`).catch((err) => message.reply(`${err}`));
+
+}
+else{
 
     switch(args[0].toLowerCase()){
         case 'darkhumor':
@@ -17,11 +23,6 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             .setImage(json.url)
             .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
             message.channel.send(darkEmbed)
-
-            talkedRecently.add(message.author);
-        setTimeout(() => {
-          talkedRecently.delete(message.author);
-        }, 90000);
             
             })
         }else{
@@ -41,18 +42,14 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
                 .setImage(json.url)
                 .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
                 message.channel.send(hentaiEmbed)
-
-                talkedRecently.add(message.author);
-                setTimeout(() => {
-                  talkedRecently.delete(message.author);
-                }, 90000); 
                 
             })
             
             }else{
                 return
-            }       
-}}}
+            }        
+}used.set(message.author.id, Date.now() + 1000 * 60 * 5);
+setTimeout(() => { used.delete(message.author.id), 1000 * 60 * 5});}}
 
 module.exports.config = {
 name: 'subreddit',
