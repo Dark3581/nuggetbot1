@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
    
-let msg = await message.channel.send('c:');
 fetch('https://meme-api.herokuapp.com/gimme/hentai')
 .then(res => res.json())
 .then(json => {
@@ -10,7 +9,7 @@ fetch('https://meme-api.herokuapp.com/gimme/hentai')
     .setTitle(json.title)
     .setImage(json.url)
     .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
-    msg.edit(memeEmbed)
+    message.channel.send(memeEmbed)
     
 });
 
