@@ -31,7 +31,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             })
             
             }else{
-                return message.channel.send(':x: Wrong channel')
+                return
             }        
 }}
 
