@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
-if(message.channel.id === '739002385531404288', '646849145289834506', '785079847763574794'){
+if(message.channel.id === '739002385531404288', '646849145289834506', '785079847763574794','782891383361896469'){
    
 fetch('https://meme-api.herokuapp.com/gimme/hentai')
 .then(res => res.json())
