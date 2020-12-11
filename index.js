@@ -61,9 +61,9 @@ client.on("message", async(message) => {
     return message.channel.send('I must have embed links permission')
 
     if(!message.guild.me.permissions.has(
-        "SEND_MESSAGES"
-    ))return
-    
+        "MANAGE_MESSAGES"
+    ))
+    return message.channel.send('I must have manage messages')
 
     
 
