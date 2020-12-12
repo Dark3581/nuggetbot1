@@ -1,16 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-const used = new Map();
-const Duration = require('humanize-duration');
-const talkedRecently = new Set();
 module.exports.run = async(client, message, args, queue, searcher,   ) => {
-const cooldown = used.get(message.author.id);
-if (cooldown) {
-    const remaining = Duration(cooldown - Date.now(), {units: ['h', 'm'], round: true});
-    return message.reply(`You need to wait ${remaining} before using this command`).catch((err) => message.reply(`${err}`));
-
-}
-else{
     switch(args[0].toLowerCase()){
         case 'darkhumor':
         if(message.channel.id === '636641555913900034'){    
@@ -46,9 +36,8 @@ else{
             
             }else{
                 return
-            }}       
-            used.set(message.author.id, Date.now() + 1000 * 60 * 5);
-            setTimeout(() => { used.delete(message.author.id), 1000 * 60 * 5});}}
+            }        
+}}
 
 module.exports.config = {
 name: 'subreddit',
