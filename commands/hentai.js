@@ -20,3 +20,8 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             })
         }else{
             return}}}
+
+    module.exports.config = {
+        name: "hentai",
+        aliases: ['ht']  
+    }
