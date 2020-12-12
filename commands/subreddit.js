@@ -41,7 +41,8 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             }break;
             case 'meme':
                  if(message.channel.id === '636641555913900034'||
-        message.channel.id === '784417039425994772'){    
+        message.channel.id === '784417039425994772'||
+        message.channel.id === '785671878861258772'){    
         fetch('https://meme-api.herokuapp.com/gimme/dankmemes')
         .then(res => res.json())
         .then(json => {
