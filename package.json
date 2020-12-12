@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "humanize-duration": "^3.25.0",
     "lyrics-finder": "^21.4.0",
     "node-fetch": "^2.6.1",
     "opusscript": "^0.0.7",
