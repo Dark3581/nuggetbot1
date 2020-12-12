@@ -11,11 +11,11 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
         fetch('https://nekos.life/api/v2/img/lewd')
         .then(res => res.json())
         .then(json => {
-            let darkEmbed = new Discord.MessageEmbed()
+            let nekoEmbed = new Discord.MessageEmbed()
             .setTitle(json.title)
             .setImage(json.url)
             .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
-            message.channel.send(darkEmbed)
+            message.channel.send(nekoEmbed)
             
             })
         }else{
