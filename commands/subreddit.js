@@ -4,6 +4,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
     switch(args[0].toLowerCase()){
         case 'darkhumor':
         if(message.channel.id === '636641555913900034'||
+        message.channel.id === '782887824575168552' ||
         message.channel.id === '784417039425994772'){    
         fetch('https://meme-api.herokuapp.com/gimme/Darkhumoriq')
         .then(res => res.json())
@@ -24,7 +25,6 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             message.channel.id === '785079847763574794'||
             message.channel.id === '782891383361896469'||
             message.channel.id === '784417039425994772'){
-               
             fetch('https://meme-api.herokuapp.com/gimme/hentai')
             .then(res => res.json())
             .then(json => {
@@ -42,6 +42,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             case 'meme':
                  if(message.channel.id === '636641555913900034'||
         message.channel.id === '784417039425994772'||
+        message.channel.id === '782887824575168552'||
         message.channel.id === '785671878861258772'){    
         fetch('https://meme-api.herokuapp.com/gimme/dankmemes')
         .then(res => res.json())
