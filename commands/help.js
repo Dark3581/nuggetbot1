@@ -16,7 +16,8 @@ Queue
 Queue remove <Queue position>
 Loop <Once/On/Off>
 lyrics <Artist Of Song>
-hentai (Must do in NSFW)\`\`\``, 
+Hentai <Neko>
+Subreddit <Memes/Darkhumor/Hentai/Buttfangs>\`\`\``, 
          inline: true}, 
     )
     .setImage('https://media.giphy.com/media/u3Ykz2ujwZYCjFlxt2/giphy.gif')

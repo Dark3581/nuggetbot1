@@ -60,7 +60,7 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
                 return
             }break;
 
-            case 'meme':
+            case 'memes':
                  if(message.channel.id === '636641555913900034'||
         message.channel.id === '784417039425994772'||
         message.channel.id === '782887824575168552'||
