@@ -47,8 +47,8 @@ else{
             }else{
                 return
             }        
-}used.set(message.author.id, Date.now() + 1000 * 60 * 5);
-setTimeout(() => { used.delete(message.author.id), 1000 * 60 * 5});}}
+            used.set(message.author.id, Date.now() + 1000 * 60 * 5);
+            setTimeout(() => { used.delete(message.author.id), 1000 * 60 * 5});}}}
 
 module.exports.config = {
 name: 'subreddit',
