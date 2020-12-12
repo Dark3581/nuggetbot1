@@ -23,9 +23,9 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
         const embeds = embedGenerator(serverQueue, lMsg)
 
-        const queueEmbed = message.channel.send(`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
-            await queueEmbed.react('◀️');
-            await queueEmbed.react('▶️');
+        const queueEmbed = message.channel.send(`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+            await queueEmbed.reaction('◀️');
+            await queueEmbed.reaction('▶️');
 
         const reactionFilter = (reaction, user) => ['◀️', '▶️'].includes(reaction.emoji.name) && (message.author.id === user.id)
         const collector = queueEmbed.createReactionCollector(reactionFilter);
