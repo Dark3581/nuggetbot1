@@ -39,13 +39,24 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             }else{
                 return
             }break;
-        }
+            case 'meme':
+                 if(message.channel.id === '636641555913900034'||
+        message.channel.id === '784417039425994772'){    
+        fetch('https://meme-api.herokuapp.com/gimme/dankmemes')
+        .then(res => res.json())
+        .then(json => {
+            let memeEmbed = new Discord.MessageEmbed()
+            .setTitle(json.title)
+            .setImage(json.url)
+            .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
+            message.channel.send(memeEmbed)
+        })
+    }else{
+        return
+    }
 
-}
+}}
 
 module.exports.config = {
 name: 'subreddit',
-aliases: ['sub'],
-
-
-}
+aliases: ['sub']}
