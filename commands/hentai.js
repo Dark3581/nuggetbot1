@@ -12,9 +12,8 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
         .then(res => res.json())
         .then(json => {
             let nekoEmbed = new Discord.MessageEmbed()
-            .setTitle(json.title)
+            .setTitle('Lewd Nekos! (=^･ω･^=)')
             .setImage(json.url)
-            .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
             message.channel.send(nekoEmbed)
             
             })
