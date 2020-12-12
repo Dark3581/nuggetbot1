@@ -38,8 +38,10 @@ module.exports.run = async(client, message, args, queue, searcher,   ) => {
             
             }else{
                 return
-            }        
-}}
+            }break;
+        }
+
+}
 
 module.exports.config = {
 name: 'subreddit',
