@@ -5,6 +5,8 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
     const vc = message.member.voice.channel;
     if(!vc)
         return message.channel.send('Join a VC');
+    if(args.length <= 0)
+        return message.channel.send('Input a song name')
 
     let url = args.join('');
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
