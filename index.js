@@ -65,6 +65,26 @@ client.on("message", async(message) => {
     ))
     return message.channel.send('I must have manage messages')
 
+    if(!message.guild.me.permissions.has(
+        "ADD_REACTIONS"
+    ))
+    return message.channel.send('I must be able to Add Reactions')
+
+    if(!message.guild.me.permissions.has(
+        "SEND_MESSAGES"
+    ))
+    return
+
+    if(!message.guild.me.permissions.has(
+        "CONNECT"
+    ))
+    return message.channel.send('I don\'t permissions')
+
+    if(!message.guild.me.permissions.has(
+        "SPEAK"
+    ))
+    return message.channel.send('If I can\'t speak, then I can\'t play music')
+
     
 
 
