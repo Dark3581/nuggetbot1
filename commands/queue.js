@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
 
         const embeds = embedGenerator(serverQueue, lMsg)
 
-        const queueEmbed = message.channel.send(`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+        const queueEmbed = message.channel.send(`Page ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
             await queueEmbed.react('◀️');
             await queueEmbed.react('▶️');  
 
