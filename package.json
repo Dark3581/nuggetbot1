@@ -9,7 +9,7 @@
     "node-fetch": "^2.6.1",
     "opusscript": "^0.0.7",
     "yt-dl-playlist": "^2.1.0",
-    "ytdl-core": "^4.1.4",
+    "ytdl-core": "^4.1.6",
     "ytpl": "^2.0.0-alpha.3",
     "ytsearcher": "^1.2.3"
   },
