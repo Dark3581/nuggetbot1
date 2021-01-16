@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 module.exports.run = async (client, message, args, queue, searcher ) => {
     const serverQueue = queue.get(message.guild.id)
-    const embeds = [];
     if(!serverQueue)
             return message.channel.send("There is no music currently playing!");
         if(message.member.voice.channel != message.guild.me.voice.channel)
@@ -65,7 +64,8 @@ module.exports.run = async (client, message, args, queue, searcher ) => {
             }
         
         }
-function embedGenerator(serverQueue, lMsg, currentPage, embeds){
+function embedGenerator(serverQueue, lMsg, currentPage, ){
+    const embeds = [];
     let songs = 10;
     for (let i = 0; i < serverQueue.songs.length; i+= 10){
         const current = serverQueue.songs.slice(i, songs)
